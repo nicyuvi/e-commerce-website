@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Utilities */
+@layer utilities {
+  @responsive {
+    /* custom spacing */
+    .max-h-600 {
+      max-height: 600px;
+    }
+    .h-110px {
+      height: 110px;
+    }
+    .w-300px {
+      width: 300px;
+    }
+    .w-500px {
+      width: 500px;
+    }
+    /* end custom spacing */
+
+    /* custom btn */
+    .btn-light {
+      /* background positioning off element at diagonal */
+      background-size: 200% 200%;
+      background-image: linear-gradient(-6deg, #f7fafc 50%, #ef4444 50%);
+      transition: background-position 0.2s;
+      @apply text-2xl rounded-full pb-2 px-6 xl:px-4 text-white hover:text-gray-800 cursor-pointer;
+    }
+    .btn-light:hover {
+      background-position: 100% 100%;
+    }
+    .btn-dark {
+      /* background positioning off element at diagonal */
+      background-size: 200% 200%;
+      background-image: linear-gradient(
+        -6deg,
+        rgba(31, 41, 55) 50%,
+        #ef4444 50%
+      );
+      transition: background-position 0.2s;
+      @apply text-2xl rounded-full pb-2 px-6 xl:px-4 text-white cursor-pointer;
+    }
+    .btn-dark:hover {
+      background-position: 100% 100%;
+    }
+
+    /* end custom btn */
+
+    /* custom shape */
+    .shape-top {
+      position: absolute;
+      height: 2.5rem;
+      top: -2.4rem;
+      right: 0px;
+      width: 36%;
+      --tw-bg-opacity: 1;
+      background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+    }
+
+    .shape-top:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: -2rem;
+      width: 4rem;
+      height: 100%;
+      --tw-bg-opacity: 1;
+      background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+      transform: skew(-35deg);
+    }
+
+    .shape-bot {
+      position: absolute;
+      height: 2.5rem;
+      right: 0px;
+      width: calc(50% + 2.5rem);
+      bottom: -2.4rem;
+      transform: scaleY(-1);
+      --tw-bg-opacity: 1;
+      background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+    }
+
+    .shape-bot:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0px;
+      height: 100%;
+      left: -1.5rem;
+      width: 3rem;
+      transform: skew(-45deg);
+      --tw-bg-opacity: 1;
+      background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
+    }
+    /* end custom shape */
+  }
+}
+
+/* Custom padding to show under fixed nav bar */
+#hero {
+  padding-top: 56px;
+}
