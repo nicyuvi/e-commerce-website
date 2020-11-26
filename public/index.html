@@ -68,12 +68,48 @@
   <!-- featured products section -->
   <section id="featured-products">
     <div class="container m-auto">
-      <div id="featured-products-header" class="text-3xl font-bold">
-        <h2>Featured Products</h2>
+      <div class="flex flex-row">
+        <div id="featured-products-header" class="text-3xl font-bold xl:w-1/4">
+          <h2>Featured Products</h2>
+        </div>
+        <!-- product cards -->
+        <div id="featured-products-cards" class="hidden xl:grid w-3/4 grid-flow-row grid-cols-3 auto-rows-fr gap-8">
+          <div class="product-card">
+            <div class="border border-gray-300 h-96 cursor-pointer overflow-hidden">
+              <img class="object-center object-cover h-96 transform hover:scale-105 transition-transform duration-300" src="../src/assets/product-1.jpg"
+                alt="image of featured product">
+            </div>
+            <h2 class="text-2xl">Product 01</h2>
+            <p class="text-xl text-gray-500">$10.00</p>
+          </div>
+          <div class="product-card">
+            <div class="border border-gray-300 h-96 cursor-pointer overflow-hidden">
+              <img class="object-center object-cover h-96 transform hover:scale-105 transition-transform duration-300" src="../src/assets/product-2.jpg"
+                alt="image of featured product">
+            </div>
+            <h2 class="text-2xl">Product 02</h2>
+            <p class="text-xl text-gray-500">$10.00</p>
+          </div>
+          <div class="product-card">
+            <div class="border border-gray-300 h-96 cursor-pointer overflow-hidden">
+              <img class="object-center object-cover h-96 transform hover:scale-105 transition-transform duration-300" src="../src/assets/product-3.jpg"
+                alt="image of featured product">
+            </div>
+            <h2 class="text-2xl">Product 03</h2>
+            <p class="text-xl text-gray-500">$10.00</p>
+          </div>
+          <div class="product-card">
+            <div class="border border-gray-300 h-96 cursor-pointer overflow-hidden">
+              <img class="object-center object-cover h-96 transform hover:scale-105 transition-transform duration-300" src="../src/assets/product-2.jpg"
+                alt="image of featured product">
+            </div>
+            <h2 class="text-2xl">Product 02</h2>
+            <p class="text-xl text-gray-500">$10.00</p>
+          </div>
+          
+        <!-- end product cards -->
       </div>
-      <!-- product cards -->
-      <div id="featured-products-cards"></div>
-      <!-- end product cards -->
+      </div>
 
       <!-- Splide js -->
       <div id="splide1" class="splide xl:hidden">
