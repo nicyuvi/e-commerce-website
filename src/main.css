@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Custom Utilities */
+/* custom utilities */
 @layer utilities {
   @responsive {
     /* custom spacing */
@@ -17,6 +17,9 @@
     }
     .w-500px {
       width: 500px;
+    }
+    .pt-56px {
+      padding-top: 56px;
     }
     /* end custom spacing */
 
@@ -98,8 +101,11 @@
     /* end custom shape */
   }
 }
+/* end custom utilities */
 
-/* Custom padding to show under fixed nav bar */
-#hero {
-  padding-top: 56px;
+/* apply classes */
+img {
+  @apply w-full;
+  @apply h-auto;
 }
+/* end apply classes */
