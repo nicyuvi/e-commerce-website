@@ -3,7 +3,7 @@ import './main.css';
 // end import main css
 
 // import splide.js css
-import '@splidejs/splide/dist/css/splide.min.css';
+import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
 // end import splide.js css
 
 import Splide from '@splidejs/splide';
