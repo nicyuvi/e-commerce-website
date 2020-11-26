@@ -109,3 +109,19 @@ img {
   @apply h-auto;
 }
 /* end apply classes */
+
+/* custom splide */
+.splide__arrow svg {
+  fill: #ef4444 !important;
+}
+.splide__arrow svg:hover {
+  fill: #f87171 !important;
+}
+.splide__pagination__page {
+  background: #27272a !important;
+}
+
+.splide__pagination__page.is-active {
+  background: #ef4444 !important;
+}
+/* end custom splide */
