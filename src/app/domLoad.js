@@ -1,9 +1,7 @@
-import Products from './utils/products';
+import getProducts from './utils/products';
+
 // Event on page load
 export default document.addEventListener('DOMContentLoaded', () => {
-  // instantiate Products
-  const products = new Products();
-
-  // get all products
-  products.getProducts();
+  // Get products from contentful
+  getProducts();
 });
