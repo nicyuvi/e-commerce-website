@@ -6,6 +6,7 @@ import './main.css';
 import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
 // end import splide.js css
 
+import 'regenerator-runtime/runtime';
 import Splide from '@splidejs/splide';
 import { navBarRun } from './app/navBar';
 // eslint-disable-next-line no-unused-vars
