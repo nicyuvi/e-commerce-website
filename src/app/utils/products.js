@@ -8,22 +8,20 @@ const client = contentful.createClient({
 });
 
 // Get products from contentful
-export default class Products {
-  async getProducts() {
-    try {
-      //
-      const contentfulEntries = await client.getEntries({
-        content_type: 'ecommerceDemo',
-      });
-
-      const products = contentfulEntries.items;
-      // eslint-disable-next-line no-console
-      console.log(products);
-      // eslint-disable-next-line no-console
-      console.log('Hello Contentful');
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
-    }
+export default async () => {
+  try {
+    // Assign response from contentful 'ecommerceDemo' space to response
+    const response = await client.getEntries({
+      content_type: 'ecommerceDemo',
+    });
+    // Assign response items to products
+    const products = response.items;
+    // eslint-disable-next-line no-console
+    console.log(products);
+    // eslint-disable-next-line no-console
+    console.log('Hello Contentful');
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.log(error);
   }
-}
+};
