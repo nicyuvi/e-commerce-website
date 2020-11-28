@@ -9,7 +9,7 @@ const client = contentful.createClient({
 
 // Get products from contentful
 export default class Products {
-  static async getProducts() {
+  async getProducts() {
     try {
       //
       const contentfulEntries = await client.getEntries({
@@ -27,13 +27,3 @@ export default class Products {
     }
   }
 }
-
-/* client.getEntries()
-.then(function (entries) {
-  // log the title for all the entries that have it
-  entries.items.forEach(function (entry) {
-    if(entry.fields.productName) {
-      console.log(entry.fields.productName)
-    }
-  })
-}) */
