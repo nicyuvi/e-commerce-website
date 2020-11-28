@@ -8,6 +8,7 @@ module.exports = {
     ecmaVersion: 12,
     sourceType: 'module',
   },
+  parser: 'babel-eslint',
   rules: {
     'linebreak-style': 0,
   },
