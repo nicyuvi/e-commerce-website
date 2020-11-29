@@ -10,28 +10,29 @@ export default class UI {
     products.forEach((product) => {
       // add product cards to empty cards string
       cards += `
-        <div class="product-card">
-          <div class="border border-gray-300 h-96 cursor-pointer overflow-hidden">
+        <div data-id=${product.id} class="product-card cursor-pointer">
+          <div class="border border-gray-300 h-96  overflow-hidden">
             <img class="object-center object-cover h-96 transform hover:scale-105 transition-transform duration-300" src="${product.image}"
               alt="image of featured product">
           </div>
           <h2 class="text-2xl">${product.title}</h2>
-          <p class="text-xl text-gray-500">${product.price}</p>
+          <p class="text-xl text-gray-500">$${product.price}</p>
       </div>`;
       // add slides to empty slides string
       const slides = `
-          <div class="splide__slide__container border border-gray-300 h-96 md:h-72">
-            <img class="object-center object-cover h-96 md:h-72" src="${product.image}" alt="image of featured product">
+          <div class="splide__slide__container border border-gray-300 h-96 md:h-72 overflow-hidden">
+            <img class="object-center object-cover h-96 md:h-72 transform hover:scale-105 transition-transform duration-300" src="${product.image}" alt="image of featured product">
           </div>
           <h2 class="text-2xl">${product.title}</h2>
-          <p class="text-xl text-gray-500">${product.price}</p>
+          <p class="text-xl text-gray-500">$${product.price}</p>
       `;
       // add slides to splide slider
-      splide.add(`<li class="splide__slide">${slides}</li>`);
+      splide.add(
+        // eslint-disable-next-line comma-dangle
+        `<li data-id=${product.id} class="splide__slide cursor-pointer">${slides}</li>`
+      );
     });
     // add product cards to DOM
     productsDOM.innerHTML = cards;
   }
 }
-
-// **NOTE: Format prices**
