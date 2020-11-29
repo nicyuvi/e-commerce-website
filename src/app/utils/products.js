@@ -8,6 +8,7 @@ const client = contentful.createClient({
 });
 
 // Get products from contentful
+// eslint-disable-next-line consistent-return
 export default async () => {
   try {
     // Assign response from contentful 'ecommerceDemo' space to response
