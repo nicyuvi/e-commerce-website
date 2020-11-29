@@ -1,7 +1,10 @@
 import getProducts from './utils/products';
-
-// Event on page load
+import UI from './userInterface';
+// event on page load
 export default document.addEventListener('DOMContentLoaded', () => {
-  // Get products from contentful
-  getProducts();
+  // get products from contentful
+  getProducts().then((products) => {
+    // call static method displayProducts
+    UI.displayProducts(products);
+  });
 });
