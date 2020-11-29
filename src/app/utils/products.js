@@ -15,11 +15,24 @@ export default async () => {
       content_type: 'ecommerceDemo',
     });
     // Assign response items to products
-    const products = response.items;
-    // eslint-disable-next-line no-console
+    let products = response.items;
+    products = products.map((item) => {
+      // destructure
+      const { title, price, desc } = item.fields;
+      const { id } = item.sys;
+      const image = item.fields.image.fields.file.url;
+      // return a clean product object
+      return {
+        title,
+        price,
+        desc,
+        id,
+        image,
+      };
+    });
     console.log(products);
-    // eslint-disable-next-line no-console
-    console.log('Hello Contentful');
+    // return array of products
+    return products;
   } catch (error) {
     // eslint-disable-next-line no-console
     console.log(error);
