@@ -14,7 +14,7 @@ export default document.addEventListener('DOMContentLoaded', () => {
     })
     .then(() => {
       // display product in product view
-      ProductView.viewProduct();
+      ProductView.clickProduct();
     })
     .catch((err) => {
       console.log(err);
