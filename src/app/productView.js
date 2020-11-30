@@ -1,11 +1,14 @@
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import Storage from './utils/localStorage';
 
 const productViewContainer = document.querySelector('#product-view');
 const productViewOverlay = document.querySelector('#modal-overlay');
-const productViewClose = document.querySelector('#modal-close');
+const productViewCloseBtn = document.querySelector('#modal-close');
+const productViewContent = document.querySelector('#modal-content');
 
 export default class ProductView {
-  static viewProduct() {
+  // displays product modal
+  static viewProductModal() {
     if (productViewOverlay.classList.contains('active')) {
       // scroll lock
       disableBodyScroll('#body');
@@ -23,6 +26,27 @@ export default class ProductView {
     }
   }
 
+  // displays product content inside modal
+  static viewProduct(item) {
+    const { id } = item.dataset;
+    const product = { ...Storage.getProduct(id) };
+    console.log(product);
+
+    const modalContent = `
+    <img class="object-center object-cover h-96 lg:h-auto" src="${product.image}" alt="#"> 
+    <div class="bg-gray-800 p-6">
+      <h3 class="text-4xl text-center text-white font-bold mb-4">${product.title}</h3>
+      <p class="text-xl text-white mb-4 text-center">${product.desc}</p>
+      <p class ="text-xl text-white mb-4 text-center">$${product.price}</p>
+      <div class="flex justify-center">
+        <a class="btn-light" href="#"><span>/</span> Add to Cart</a>
+      </div>
+    </div>`;
+
+    productViewContent.innerHTML = modalContent;
+  }
+
+  // product click event method
   static clickProduct() {
     // declare slides
     const slides = document.querySelectorAll('.splide__slide');
@@ -32,25 +56,27 @@ export default class ProductView {
     // click event for each slide
     slides.forEach((slide) => {
       slide.addEventListener('click', () => {
-        ProductView.viewProduct();
+        ProductView.viewProductModal();
+        ProductView.viewProduct(slide);
       });
     });
 
     // click event for each product card
     cards.forEach((card) => {
       card.addEventListener('click', () => {
-        ProductView.viewProduct();
+        ProductView.viewProductModal();
+        ProductView.viewProduct(card);
       });
     });
 
     // click event for close btn
-    productViewClose.addEventListener('click', () => {
-      ProductView.viewProduct();
+    productViewCloseBtn.addEventListener('click', () => {
+      ProductView.viewProductModal();
     });
 
     // click event for overlay
     productViewOverlay.addEventListener('click', () => {
-      ProductView.viewProduct();
+      ProductView.viewProductModal();
     });
   }
 }
