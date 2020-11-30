@@ -6,6 +6,7 @@ export default class Storage {
 
   // Getting specific item from local storage based on unique id
   static getProduct(id) {
+    // gets array of objects from local storage
     const products = JSON.parse(localStorage.getItem('products'));
     // returning the FIRST PRODUCT that matches unique id argument from the products array
     return products.find((product) => product.id === id);
