@@ -39,7 +39,7 @@ export default class ProductView {
       <p class="text-xl text-white mb-4 text-center">${product.desc}</p>
       <p class ="text-xl text-white mb-4 text-center">$${product.price}</p>
       <div class="flex justify-center">
-        <a class="btn-light" href="#"><span>/</span> Add to Cart</a>
+        <div id="modal-link" class="btn-light"><span>/</span> Add to Cart</div>
       </div>
     </div>`;
 
