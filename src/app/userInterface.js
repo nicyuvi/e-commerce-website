@@ -23,7 +23,7 @@ export default class UI {
           </div>
           <h2 class="text-2xl">${title}</h2>
           <p class="text-xl text-gray-500">$${price}</p>
-      </div>`;
+        </div>`;
 
       // add slides to empty slides string
       const slides = `
@@ -32,7 +32,7 @@ export default class UI {
           </div>
           <h2 class="text-2xl">${title}</h2>
           <p class="text-xl text-gray-500">$${price}</p>
-      `;
+        `;
 
       // add slides to splide slider
       splide.add(
