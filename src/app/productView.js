@@ -34,7 +34,7 @@ export default class ProductView {
 
     const modalContent = `
     <div class="lg:w-1/2">
-      <img class="object-center object-cover h-96 lg:h-auto" src="${product.image}" alt="#"> 
+      <img class="object-center object-cover h-96" src="${product.image}" alt="#"> 
     </div>
     <div class="bg-gray-800 text-white text-center lg:text-right p-6 lg:w-1/2">
       <h3 class="text-4xl font-bold mb-4">${product.title}</h3>
