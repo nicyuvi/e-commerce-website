@@ -9,39 +9,42 @@
   <!-- nav section -->
   <section id="nav">
     <div class="bg-gray-900 text-white fixed inset-x-0 top-0  z-50">
+
       <!-- desktop nav -->
       <nav class="lg:flex justify-between items-center container m-auto hidden py-4">
-        <ul class="flex">
+        <ul class="flex ml-4">
           <li class="brand mr-3">Brand</li>
           <li class="mr-3">Shop all</li>
           <li class="mr-3">Featured products</li>
         </ul>
-        <ul class="flex">
-          <li class="ml-6">
-            <div class="cart-btn relative p-1">
-              <i class="fas fa-shopping-cart cursor-pointer text-xl"></i>
-              <div class="cart-items">0</div>
-            </div>
-          </li>
+        <ul class="flex mr-4">
           <li class="ml-6">Sign in</li>
+            <li class="ml-6">
+              <div class="cart-btn relative p-1">
+                <i class="fas fa-shopping-cart cursor-pointer text-xl"></i>
+                <div class="cart-items">0</div>
+              </div>
+            </li>
         </ul>
       </nav>
+
       <!-- mobile and tablet nav -->
       <nav class="lg:hidden flex justify-between container m-auto p-4 sm:px-0">
-        <div class="hamBtn">
+        <div class="hamBtn ml-4">
           <i class="fas fa-bars cursor-pointer text-xl"></i>
           <i class="fas fa-times cursor-pointer text-xl hidden"></i>
         </div>
 
         <div class="brand">Brand</div>
-        <div class="cart-btn relative p-1">
+        <div class="cart-btn relative p-1 mr-4">
           <i class="fas fa-shopping-cart cursor-pointer text-xl"></i>
           <div class="cart-items">0</div>
         </div>
       </nav>
     </div>
+
     <!-- mobile nav links -->
-    <div id="nav-sidebar" class="fixed inset-y-0.left-0 h-screen w-screen transform  md:w-2/3 lg:hidden bg-gray-800 text-white pt-20 pl-8 transition duration-300 -translate-x-full ease-in-out z-40">
+    <div id="nav-sidebar" class="fixed inset-y-0 left-0 h-screen w-screen transform md:w-2/3 lg:hidden bg-gray-800 text-white pt-20 pl-8 transition duration-300 -translate-x-full ease-in-out z-40">
       <ul>
         <li>one</li>
         <li>two</li>
@@ -49,6 +52,17 @@
       </ul>
     </div>
     <div id="nav-overlay" class="fixed z-30 inset-0 bg-gray-800 bg-opacity-30 transition duration-3000 hidden active"></div>
+
+    <!-- shopping cart -->
+  <div id="cart-sidebar"
+    class="fixed inset-y-0 right-0 h-screen w-screen transform md:w-2/3 bg-gray-800 text-white pt-20 pl-8 transition duration-300 translate-x-full ease-in-out z-40">
+    <ul>
+      <li>one</li>
+      <li>two</li>
+      <li>three</li>
+    </ul>
+  </div>
+  <div id="cart-overlay" class="fixed z-30 inset-0 bg-gray-800 bg-opacity-30 transition duration-3000 hidden active"></div>
   </section>
   <!-- end nav section -->
 
@@ -101,7 +115,7 @@
     <div id="product-view" class="modal transition duration-300 ease-in-out opacity-0 z-20 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
       <div id="modal-overlay" class="active modal-overlay z-10 absolute w-full h-full bg-gray-900 opacity-75"></div>
     
-      <div class="modal-container p-4 bg-gray-800 mt-56px h-4/5 w-11/12 lg:w-4/5 2xl:w-3/5 mx-auto rounded shadow-lg z-50 overflow-y-auto lg:relative lg:flex lg:flex-col lg:justify-center">
+      <div class="modal-container p-4 bg-gray-800 mt-56px h-4/5 max-h-600px w-11/12 lg:w-4/5 2xl:w-3/5 mx-auto rounded shadow-lg z-50 overflow-y-auto lg:relative lg:flex lg:flex-col lg:justify-center">
         <div id="modal-close" class="flex justify-end mb-4 cursor-pointer z-50 lg:absolute lg:top-3 lg:right-3">
           <i class="far fa-times-circle text-3xl text-white"></i>
         </div>
