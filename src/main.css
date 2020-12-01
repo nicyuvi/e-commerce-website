@@ -102,6 +102,19 @@
       background-color: rgba(31, 41, 55, var(--tw-bg-opacity));
     }
     /* end custom shape */
+
+    /* custom cart button */
+    .cart-items {
+      text-align: center;
+      background-color: red;
+      position: absolute;
+      top: -6px;
+      border-radius: 10px;
+      right: -8px;
+      font-size: 0.75rem;
+      padding: 0 5px;
+    }
+    /* custom cart button */
   }
 }
 /* end custom utilities */
