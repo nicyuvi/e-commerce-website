@@ -8,7 +8,7 @@ export default document.addEventListener('DOMContentLoaded', () => {
   getProducts()
     .then((products) => {
       // display products to DOM
-      UI.displayProducts(products);
+      UI.displayFeaturedProducts(products);
       // save products array to local storage
       Storage.saveProducts(products);
     })
