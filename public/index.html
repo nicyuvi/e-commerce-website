@@ -10,15 +10,20 @@
   <section id="nav">
     <div class="bg-gray-900 text-white fixed inset-x-0 top-0  z-50">
       <!-- desktop nav -->
-      <nav class="lg:flex justify-between container m-auto hidden py-4">
+      <nav class="lg:flex justify-between items-center container m-auto hidden py-4">
         <ul class="flex">
           <li class="brand mr-3">Brand</li>
           <li class="mr-3">Shop all</li>
           <li class="mr-3">Featured products</li>
         </ul>
         <ul class="flex">
-          <li class="ml-3">Cart</li>
-          <li class="ml-3">Sign in</li>
+          <li class="ml-6">
+            <div class="cart-btn relative p-1">
+              <i class="fas fa-shopping-cart cursor-pointer text-xl"></i>
+              <div class="cart-items">0</div>
+            </div>
+          </li>
+          <li class="ml-6">Sign in</li>
         </ul>
       </nav>
       <!-- mobile and tablet nav -->
@@ -29,7 +34,10 @@
         </div>
 
         <div class="brand">Brand</div>
-        <i class="fas fa-shopping-cart cursor-pointer text-xl"></i>
+        <div class="cart-btn relative p-1">
+          <i class="fas fa-shopping-cart cursor-pointer text-xl"></i>
+          <div class="cart-items">0</div>
+        </div>
       </nav>
     </div>
     <!-- mobile nav links -->
