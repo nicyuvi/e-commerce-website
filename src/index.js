@@ -8,7 +8,7 @@ import '@splidejs/splide/dist/css/themes/splide-sea-green.min.css';
 
 import 'regenerator-runtime/runtime';
 import preventLinkDefault from './app/utils/preventLinkDefault';
-import { navBarRun } from './app/navBar';
+import navBarRun from './app/navBar';
 // eslint-disable-next-line no-unused-vars
 import domLoad from './app/domLoad';
 

@@ -1,11 +1,17 @@
 // body scroll lock
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 
+// nav sidebar
 const navSidebar = document.querySelector('#nav-sidebar');
 const navOverlay = document.querySelector('#nav-overlay');
 const hamBtn = document.querySelector('.hamBtn');
 
-export function navBar() {
+// cart sidebar
+const cartBtn = document.querySelectorAll('.cart-btn');
+const cartSidebar = document.querySelector('#cart-sidebar');
+const cartOverlay = document.querySelector('#cart-overlay');
+
+function toggleNavSidebar() {
   // had to replace 'toggle' with 'add/remove' to make use of body scroll lock library
   if (navOverlay.classList.contains('active')) {
     // scroll lock
@@ -32,7 +38,42 @@ export function navBar() {
   }
 }
 
-export function navBarRun() {
-  hamBtn.addEventListener('click', navBar);
-  navOverlay.addEventListener('click', navBar);
+function toggleCartSidebar() {
+  if (cartOverlay.classList.contains('active')) {
+    // scroll lock
+    disableBodyScroll('#body');
+    // sidebar slide in
+    cartSidebar.classList.remove('translate-x-full');
+    // display overlay
+    cartOverlay.classList.remove('hidden');
+    cartOverlay.classList.remove('active');
+  } else {
+    // scroll enable
+    enableBodyScroll('#body');
+    // sidebar slide out
+    cartSidebar.classList.add('translate-x-full');
+    // hide overlay
+    cartOverlay.classList.add('hidden');
+    cartOverlay.classList.add('active');
+  }
 }
+
+export default () => {
+  hamBtn.addEventListener('click', () => {
+    toggleNavSidebar();
+    if (!cartSidebar.classList.contains('translate-x-full')) {
+      toggleCartSidebar();
+    }
+  });
+  navOverlay.addEventListener('click', toggleNavSidebar);
+
+  cartBtn.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      toggleCartSidebar();
+      if (!navSidebar.classList.contains('-translate-x-full')) {
+        toggleNavSidebar();
+      }
+    });
+  });
+  cartOverlay.addEventListener('click', toggleCartSidebar);
+};
