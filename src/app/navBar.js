@@ -38,7 +38,7 @@ function toggleNavSidebar() {
   }
 }
 
-function toggleCartSidebar() {
+export function toggleCartSidebar() {
   if (cartOverlay.classList.contains('active')) {
     // scroll lock
     disableBodyScroll('#body');
