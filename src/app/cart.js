@@ -11,9 +11,25 @@ const cartItemsContainer = document.querySelector('#cart-items');
 let cart = [];
 
 export default class Cart {
+  static setUpApp() {
+    cart = Storage.getCart();
+    this.setCartValues(cart);
+    this.populateCart(cart);
+    // At this point our cart array is updated
+    // from local storage
+  }
+
+  static populateCart(cartFromLocalStorage) {
+    cartFromLocalStorage.forEach((item) => {
+      this.addCartItem(item);
+    });
+  }
+
+  // passing in product id and product view DOM element
   static getCartButtons(productID, productViewContent) {
+    // select add to cart button from DOM
     // eslint-disable-next-line operator-linebreak
-    const button =
+    const addToCartButton =
       productViewContent.lastElementChild.lastElementChild.firstElementChild;
 
     // check if product id is already in our cart array
@@ -22,13 +38,13 @@ export default class Cart {
     // to prevent adding multiple items to cart
     if (inCart) {
       // Set inner text for button to "In Cart"
-      button.innerHTML = '<span>/</span> In Cart';
+      addToCartButton.innerHTML = '<span>/</span> In Cart';
       // and disable the button
-      button.disabled = true;
+      addToCartButton.disabled = true;
     }
 
     // add product to cart event
-    button.addEventListener('click', (e) => {
+    addToCartButton.addEventListener('click', (e) => {
       e.target.innerHTML = '<span>/</span> In Cart';
       e.target.disabled = true;
 
@@ -95,6 +111,6 @@ export default class Cart {
     `;
 
     // cart product item to cart items container
-    cartItemsContainer.innerHTML = cartItemDOM;
+    cartItemsContainer.innerHTML += cartItemDOM;
   }
 }
