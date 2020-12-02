@@ -16,4 +16,13 @@ export default class Storage {
   static saveCart(cart) {
     localStorage.setItem('cart', JSON.stringify(cart));
   }
+
+  static getCart() {
+    // if item is in local storage
+    // parse into object
+    // if not then return empty string
+    return localStorage.getItem('cart')
+      ? JSON.parse(localStorage.getItem('cart'))
+      : [];
+  }
 }
