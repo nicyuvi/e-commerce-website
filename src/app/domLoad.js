@@ -18,6 +18,8 @@ export default document.addEventListener('DOMContentLoaded', () => {
     .then(() => {
       // display product in product view
       ProductView.clickProduct();
+      // implement cart logic
+      Cart.cartLogic();
     })
     .catch((err) => {
       console.log(err);
