@@ -48,7 +48,7 @@ export default class ProductView {
     // inject modal content in DOM
     productViewContent.innerHTML = modalContent;
 
-    // get cart buttons
+    // get cart buttons from DOM
     Cart.getCartButtons(id, productViewContent);
   }
 
