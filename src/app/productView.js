@@ -1,5 +1,6 @@
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import Storage from './utils/localStorage';
+import Cart from './cart';
 
 const productViewContainer = document.querySelector('#product-view');
 const productViewOverlay = document.querySelector('#modal-overlay');
@@ -30,7 +31,6 @@ export default class ProductView {
   static viewProduct(item) {
     const { id } = item.dataset;
     const product = { ...Storage.getProduct(id) };
-    console.log(product);
 
     const modalContent = `
     <div class="lg:w-1/2">
@@ -41,11 +41,15 @@ export default class ProductView {
       <p class="text-xl mb-4">${product.desc}</p>
       <p class ="text-xl mb-4">$${product.price}</p>
       <div class="flex justify-center lg:justify-end">
-        <div id="modal-link" data-id=${id} class="btn-light"><span>/</span> Add to Cart</div>
+        <button id="cart-btn" data-id=${id} class="btn-light"><span>/</span> Add to Cart</button>
       </div>
     </div>`;
 
+    // inject modal content in DOM
     productViewContent.innerHTML = modalContent;
+
+    // get cart buttons
+    Cart.getCartButtons(id, productViewContent);
   }
 
   // product click event method
