@@ -104,9 +104,9 @@
     /* end custom shape */
 
     /* custom cart button */
-    .cart-items {
+    .cart-items-number {
       text-align: center;
-      background-color: red;
+      background-color: #ef4444;
       position: absolute;
       top: -6px;
       border-radius: 10px;
