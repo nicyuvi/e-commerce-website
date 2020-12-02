@@ -1,14 +1,20 @@
 import Storage from './utils/localStorage';
 
+import { toggleCartSidebar } from './navBar';
+
 // cart items number in nav bar
 const cartItemsNumber = document.querySelectorAll('.cart-items-number');
 // total in shopping cart
 const cartTotal = document.querySelector('.cart-total');
 // cart items container
 const cartItemsContainer = document.querySelector('#cart-items');
+// clear cart button
+const clearCartBtn = document.querySelector('#clear-cart');
 
 // our products will live in this array once we add them
 let cart = [];
+// poplate with cart items buttons
+let buttonsDOM = [];
 
 export default class Cart {
   static setUpApp() {
@@ -62,6 +68,10 @@ export default class Cart {
 
       // add product to cart
       this.addCartItem(cartItem);
+
+      // Assign add to cart button to buttonsDOM
+      // Later used to find which buttons to enable on cart clear
+      buttonsDOM = [...buttonsDOM, e.target];
     });
   }
 
@@ -112,5 +122,74 @@ export default class Cart {
 
     // cart product item to cart items container
     cartItemsContainer.innerHTML += cartItemDOM;
+  }
+
+  // Cart functionality
+  static cartLogic() {
+    clearCartBtn.addEventListener('click', () => {
+      this.clearCart();
+    });
+
+    // update cart item quantity and remove cart items
+    cartItemsContainer.addEventListener('click', (e) => {
+      // event bubling for remove item
+      if (e.target.classList.contains('remove-item')) {
+        const removeItem = e.target;
+        const removeItemId = e.target.dataset.id;
+
+        cartItemsContainer.removeChild(
+          // eslint-disable-next-line comma-dangle
+          removeItem.parentElement.parentElement.parentElement
+        );
+
+        // removes item from cart array and local storage
+        // reenables add to cart btn on this product
+        this.removeItem(removeItemId);
+      } else if (e.target.classList.contains('fa-chevron-up')) {
+        // increase quantity
+        console.log(e.target);
+      } else if (e.target.classList.contains('fa-chevron-down')) {
+        console.log(e.target);
+      }
+    });
+  }
+
+  // removes cart items from DOM
+  static clearCart() {
+    // map through cart and return unique id
+    const cartItems = cart.map((item) => item.id);
+
+    // loop through array of ids and remove from array
+    cartItems.forEach((id) => this.removeItem(id));
+
+    // check if cart items in DOM
+    while (cartItemsContainer.children.length > 0) {
+      // remove all cart items from DOM
+      cartItemsContainer.removeChild(cartItemsContainer.children[0]);
+    }
+    // close cart sidebar
+    toggleCartSidebar();
+  }
+
+  // remove items from cart array and local storage
+  static removeItem(id) {
+    // cart items don't pass filter test
+    // cart items don't get added to new cart array
+    // removes all items from current cart array
+    cart = cart.filter((item) => item.id !== id);
+
+    // update cart and local storage to new empty cart
+    this.setCartValues(cart);
+    Storage.saveCart(cart);
+
+    // regain access to 'add to cart buttons'
+    const previouslyDisabledBtn = this.getSingleButton(id);
+    previouslyDisabledBtn.disabled = false;
+    previouslyDisabledBtn.innerHTML = '<span>/</span> Add to Cart';
+  }
+
+  // get button from DOM based on product id from cart
+  static getSingleButton(id) {
+    return buttonsDOM.find((button) => button.dataset.id === id);
   }
 }
