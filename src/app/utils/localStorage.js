@@ -11,4 +11,9 @@ export default class Storage {
     // returning the FIRST PRODUCT that matches unique id argument from the products array
     return products.find((product) => product.id === id);
   }
+
+  // Saving current cart array to local storage
+  static saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
 }
