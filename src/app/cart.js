@@ -113,9 +113,9 @@ export default class Cart {
             </div>
           </div>
           <div class="flex flex-col items-center justify-center">
-            <i class="fas fa-chevron-up cursor-pointer hover:text-red-500 transition duration-300"></i>
+            <i data-id='${item.id}' class="fas fa-chevron-up cursor-pointer hover:text-red-500 transition duration-300"></i>
             <p class="item-amount">${item.amount}</p>
-            <i class="fas fa-chevron-down cursor-pointer hover:text-red-500 transition duration-300"></i>
+            <i data-id='${item.id}' class="fas fa-chevron-down cursor-pointer hover:text-red-500 transition duration-300"></i>
           </div>
       </li>
     `;
@@ -147,9 +147,40 @@ export default class Cart {
         this.removeItem(removeItemId);
       } else if (e.target.classList.contains('fa-chevron-up')) {
         // increase quantity
-        console.log(e.target);
+        const increaseAmount = e.target;
+        const productID = increaseAmount.dataset.id;
+        // find cart item
+        const cartItem = cart.find((item) => item.id === productID);
+
+        // increase cart item's amount property
+        cartItem.amount += 1;
+
+        // update amount on DOM
+        increaseAmount.nextElementSibling.innerText = cartItem.amount;
+
+        // update cart totals
+        this.setCartValues(cart);
+
+        // update amount property in local storage
+        Storage.saveCart(cart);
       } else if (e.target.classList.contains('fa-chevron-down')) {
-        console.log(e.target);
+        // increase quantity
+        const decreaseAmount = e.target;
+        const productID = decreaseAmount.dataset.id;
+        // find cart item
+        const cartItem = cart.find((item) => item.id === productID);
+
+        // increase cart item's amount property
+        cartItem.amount -= 1;
+
+        // update amount on DOM
+        decreaseAmount.previousElementSibling.innerText = cartItem.amount;
+
+        // update cart totals
+        this.setCartValues(cart);
+
+        // update amount property in local storage
+        Storage.saveCart(cart);
       }
     });
   }
