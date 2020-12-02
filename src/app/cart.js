@@ -170,17 +170,19 @@ export default class Cart {
         // find cart item
         const cartItem = cart.find((item) => item.id === productID);
 
-        // increase cart item's amount property
-        cartItem.amount -= 1;
+        // decrease cart item's amount property unless it's at 1
+        if (cartItem.amount !== 1) {
+          cartItem.amount -= 1;
 
-        // update amount on DOM
-        decreaseAmount.previousElementSibling.innerText = cartItem.amount;
+          // update amount on DOM
+          decreaseAmount.previousElementSibling.innerText = cartItem.amount;
 
-        // update cart totals
-        this.setCartValues(cart);
+          // update cart totals
+          this.setCartValues(cart);
 
-        // update amount property in local storage
-        Storage.saveCart(cart);
+          // update amount property in local storage
+          Storage.saveCart(cart);
+        }
       }
     });
   }
