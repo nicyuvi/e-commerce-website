@@ -58,44 +58,11 @@
     class="fixed inset-y-0 right-0 h-screen w-screen transform md:w-2/3 bg-gray-800 text-white pt-20 px-8 transition duration-300 translate-x-full ease-in-out z-40 overflow-y-auto">
     <h1 class="text-center font-bold text-4xl mb-12">Your Cart</h1>
     <div class="cart-content">
-      <ul class="cart-items mb-12">
-        <li class="cart-item flex justify-between items-center mb-8">
-          <div class="text-left flex justify-between items-center">
-            <div>
-              <img class="object-cover object-center w-20 h-20 cursor-pointer" src="../src/assets/hero-img.jpg" alt="product" />
-            </div>
-            <div class="ml-12">
-              <h2 class="text-3xl">queen bed</h2>
-              <p class="text-2xl">$9.00</p>
-              <span data-id="1" class="remove-item cursor-pointer hover:text-red-500 transition duration-300">remove</span>
-            </div>
-          </div>
-          <div class="flex flex-col items-center justify-center">
-            <i class="fas fa-chevron-up cursor-pointer hover:text-red-500 transition duration-300"></i>
-            <p class="item-amount">1</p>
-            <i class="fas fa-chevron-down cursor-pointer hover:text-red-500 transition duration-300"></i>
-          </div>
-        </li>
-        <li class="cart-item flex justify-between items-center mb-8">
-          <div class="text-left flex justify-between items-center">
-            <div>
-              <img class="object-cover object-center w-20 h-20 cursor-pointer" src="../src/assets/hero-img.jpg" alt="product" />
-            </div>
-            <div class="ml-12">
-              <h2 class="text-3xl">queen bed</h2>
-              <p class="text-2xl">$9.00</p>
-              <span data-id="1" class="remove-item cursor-pointer hover:text-red-500 transition duration-300">remove</span>
-            </div>
-          </div>
-          <div class="flex flex-col items-center justify-center">
-            <i class="fas fa-chevron-up cursor-pointer hover:text-red-500 transition duration-300"></i>
-            <p class="item-amount">1</p>
-            <i class="fas fa-chevron-down cursor-pointer hover:text-red-500 transition duration-300"></i>
-          </div>
-        </li>
+      <ul id="cart-items" class="mb-12">
+        <!-- injected via js -->
       </ul>
       <div class="cart-footer flex flex-col items-center justify-center">
-        <h3 class="mb-4 text-2xl">Your Total : $ <span class="cart-total">0</span></h3>
+        <h3 class="mb-4 text-2xl">Your Total : $<span class="cart-total">0</span></h3>
         <button class="clear-cart btn-light"><span>/</span> Clear Cart</button>
       </div>
     </div>
