@@ -33,14 +33,14 @@ export default class ProductView {
     const product = { ...Storage.getProduct(id) };
 
     const modalContent = `
-    <div class="lg:w-1/2">
+    <div class="lg:w-1/2 mb-4">
       <img class="object-center object-cover h-96" src="${product.image}" alt="#"> 
     </div>
-    <div class="bg-gray-800 text-white text-center lg:text-right p-6 lg:w-1/2">
-      <h3 class="text-4xl font-bold mb-4">${product.title}</h3>
+    <div class="bg-gray-800 text-white text-center p-6 lg:w-2/5 border-2 rounded">
+      <h3 class="text-4xl font-bold mb-4 pb-4 border-b-2">${product.title}</h3>
       <p class="text-xl mb-4">${product.desc}</p>
       <p class ="text-xl mb-4">$${product.price}</p>
-      <div class="flex justify-center lg:justify-end">
+      <div class="flex justify-center">
         <button id="cart-btn" data-id=${id} class="btn-light"><span>/</span> Add to Cart</button>
       </div>
     </div>`;
