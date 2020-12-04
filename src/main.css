@@ -141,3 +141,9 @@ img {
   background: #ef4444 !important;
 }
 /* end custom splide */
+
+/* background image */
+body {
+  background: url(./assets/bg-img.png);
+}
+/* end background image */
