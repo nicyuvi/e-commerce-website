@@ -127,6 +127,9 @@ img {
 /* end apply classes */
 
 /* custom splide */
+.splide__arrows {
+  display: none;
+}
 .splide__arrow svg {
   fill: #ef4444 !important;
 }
@@ -139,6 +142,21 @@ img {
 
 .splide__pagination__page.is-active {
   background: #ef4444 !important;
+}
+
+.splide {
+  padding: 3rem 0 !important;
+}
+
+/* tailwind medium breakpoint and up */
+@media only screen and (min-width: 768px) {
+  .splide__arrows {
+    display: block;
+  }
+
+  .splide {
+    padding: 3rem !important;
+  }
 }
 /* end custom splide */
 
