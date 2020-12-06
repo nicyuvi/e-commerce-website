@@ -181,5 +181,6 @@ img {
 /* background image */
 body {
   background: url(./assets/bg-img.png);
+  min-width: 300px;
 }
 /* end background image */
