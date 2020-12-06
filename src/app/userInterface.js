@@ -1,4 +1,4 @@
-import splide from './utils/splideSlider';
+import { featuredProductSlider } from './utils/splideSlider';
 // product cards section
 const productsDOM = document.querySelector('#featured-products-cards');
 
@@ -35,7 +35,7 @@ export default class UI {
         `;
 
       // add slides to splide slider
-      splide.add(
+      featuredProductSlider.add(
         // eslint-disable-next-line comma-dangle
         `<li data-id=${id} class="splide__slide cursor-pointer">${slides}</li>`
       );
