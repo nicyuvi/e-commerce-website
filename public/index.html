@@ -56,7 +56,7 @@
 
       <!-- shopping cart -->
     <div id="cart-sidebar"
-      class="fixed inset-y-0 right-0 h-screen w-screen transform md:w-2/3 bg-gray-800 text-white pt-20 px-8 transition duration-300 translate-x-full ease-in-out z-40 overflow-y-auto">
+      class="fixed inset-y-0 right-0 h-screen w-screen transform md:w-2/3 xl:w-1/4 bg-gray-800 text-white pt-20 px-8 transition duration-300 translate-x-full ease-in-out z-40 overflow-y-auto">
       <h1 class="text-center font-bold text-4xl mb-12">Your Cart</h1>
       <div class="cart-content">
         <ul id="cart-items" class="mb-12">
@@ -94,7 +94,7 @@
     <!-- end hero section -->
 
     <!-- featured products section -->
-    <section id="featured-products" class="px-4 xl:px-8 mb-20">
+    <section id="featured-products" class="px-4 lg:px-16 mb-20">
         <div class="flex flex-row">
           <div id="featured-products-header" class="text-4xl font-bold xl:w-1/4">
             <h2>Featured Products</h2>
@@ -134,8 +134,8 @@
 
     <!-- customer satisfaction banner -->
     <section id="customer-satisfaction-banner" class="mb-20">
-      <div class="w-full h-auto border-t border-b border-red-500 flex flex-col md:flex-row justify-between items-start p-8 xl:px-16"> 
-        <div class="flex items-center justify-center mb-8">
+      <div class="w-full h-auto border-t border-b border-red-500 flex flex-col sm:flex-row justify-between items-start sm:items-center p-8 lg:px-16"> 
+        <div class="flex items-center justify-center mb-8 sm:mb-0">
           <div class="mr-4 rounded-full h-12 w-12 flex items-center justify-center bg-gray-800">
             <i class="fas fa-shipping-fast text-2xl text-white"></i>
           </div>
@@ -144,7 +144,7 @@
             <P><span>(</span> on orders over $60 <span>)</span></P>
           </div>
         </div>
-        <div class="flex items-center justify-center mb-8">
+        <div class="flex items-center justify-center mb-8 sm:mb-0">
           <div class="mr-4 rounded-full h-12 w-12 flex items-center justify-center bg-gray-800">
             <i class="fas fa-undo text-2xl text-white"></i>
           </div>
@@ -153,7 +153,7 @@
             <P><span>(</span> returns are easy! <span>)</span></P>
           </div>
         </div>
-        <div class="flex items-center justify-center mb-8">
+        <div class="flex items-center justify-center mb-8 sm:mb-0">
           <div class="mr-4 rounded-full h-12 w-12 flex items-center justify-center bg-gray-800">
             <i class="fas fa-award text-2xl text-white"></i>
           </div>
@@ -167,7 +167,7 @@
     <!-- end customer satisfaction banner -->
 
     <!-- collections section -->
-    <section id="collections" class="px-4 xl:px-8 p-12 mb-20 bg-gray-300">
+    <section id="collections" class="px-4 lg:px-16 p-12 mb-20 bg-gray-300">
       <h2 class="text-right text-4xl font-bold">Collections</h2>
       <!-- Splide js -->
       <div id="collection-slider" class="splide">
@@ -178,28 +178,28 @@
                 <img class="h-500px object-bottom object-cover transform hover:scale-105 transition-transform duration-300"
                   src="../src/assets/collection-1-img.jpg" alt="image of collection product">
               </div>
-              <button id="clear-cart" class="clear-cart btn-dark"><span>/</span> Winter Collection</button>
+              <button class="btn-dark"><span>/</span> Winter Collection</button>
             </li>
             <li class="splide__slide cursor-pointer">
               <div class="splide__slide__container border border-gray-400 h-500px overflow-hidden mb-4">
                 <img class="h-500px object-bottom object-cover transform hover:scale-105 transition-transform duration-300"
                   src="../src/assets/collection-3-img.jpg" alt="image of collection product">
               </div>
-              <button id="clear-cart" class="clear-cart btn-dark"><span>/</span> Women's Formal Collection</button>
+              <button class="btn-dark"><span>/</span> Women's Formal Collection</button>
             </li>
             <li class="splide__slide cursor-pointer">
               <div class="splide__slide__container border border-gray-400 h-500px overflow-hidden mb-4">
                 <img class="h-500px object-bottom object-cover transform hover:scale-105 transition-transform duration-300"
                   src="../src/assets/collection-2-img.jpg" alt="image of collection product">
               </div>
-              <button id="clear-cart" class="clear-cart btn-dark"><span>/</span> Designer Boots Collection</button>
+              <button class="btn-dark"><span>/</span> Designer Boots Collection</button>
             </li>
             <li class="splide__slide cursor-pointer">
               <div class="splide__slide__container border border-gray-400 h-500px overflow-hidden mb-4">
                 <img class="h-500px object-bottom object-cover transform hover:scale-105 transition-transform duration-300"
                   src="../src/assets/collection-4-img.jpg" alt="image of collection product">
               </div>
-              <button id="clear-cart" class="clear-cart btn-dark"><span>/</span> Men's Formal Collection</button>
+              <button class="btn-dark"><span>/</span> Men's Formal Collection</button>
             </li>
           </ul>
         </div>
@@ -208,19 +208,36 @@
     <!-- end collections section -->
 
     <!-- sale section -->
-    <section id="sale-section" class="px-4 xl:px-8 mb-20">
+    <section id="sale-section" class="px-4 lg:px-16 mb-20">
       <h3 class="text-center text-4xl font-bold mb-12">Sale</h3>
       <div id="sale-cards-container" class="flex flex-col lg:grid lg:gap-x-8 lg:gap-y-12 lg:grid-rows-2 lg:grid-cols-2 xl:grid-rows-1 xl:grid-cols-4 justify-between items-center">
         <!-- injected via js -->
     </section>
     <!-- end sale section -->
-    <section>
-      <div class="h-64 bg-gray-100 w-auto m-auto">Content</div>
-      <div class="h-64 bg-gray-100 w-auto m-auto">Content</div>
-      <div class="h-64 bg-gray-100 w-auto m-auto">Content</div>
-      <div class="h-64 bg-gray-100 w-auto m-auto">Content</div>
-      <div class="h-64 bg-gray-100 w-auto m-auto">Content</div>
+
+    <!-- shop all section -->
+    <section id="shop-all" class="px-4 lg:px-16 mb-20">
+      <div class=" w-full">
+        <div class="mb-4 border border-gray-300 h-500px  overflow-hidden">
+          <img class="object-center object-cover h-500px transform"
+            src="../src/assets/shop-all-img.jpg" alt="shop all image">
+        </div>
+        <div class="flex flex-col justify-center items-start md:flex-row md:justify-between md:items-center">
+          <div class="mb-4">
+            <h2 class="text-3xl font-bold">Explore all Products</h2>
+            <p class="text-xl">View all of our products as they come in.</p>
+          </div>
+          <div>
+            <button class="btn-light"><span>/</span> Explore</button>
+          </div>
+        </div>
+      </div>
     </section>
+    <!-- end shop all section -->
+    <!-- footer -->
+    <section>
+    </section>
+    <!-- footer -->
   </div>
 </body>
 </html>
