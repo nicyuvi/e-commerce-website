@@ -31,25 +31,50 @@ export default class ProductView {
   static viewProduct(item) {
     const { id } = item.dataset;
     const product = { ...Storage.getProduct(id) };
+    const saleAttribute = item.dataset.sale;
 
-    const modalContent = `
-    <div class="lg:w-1/2 mb-4">
-      <img class="object-center object-cover h-96" src="${product.image}" alt="#"> 
-    </div>
-    <div class="bg-gray-800 text-white text-center p-6 lg:w-2/5 border-2 rounded">
-      <h3 class="text-4xl font-bold mb-4 pb-4 border-b-2">${product.title}</h3>
-      <p class="text-xl mb-4">${product.desc}</p>
-      <p class ="text-xl mb-4">$${product.price}</p>
-      <div class="flex justify-center">
-        <button id="cart-btn" data-id=${id} class="btn-light"><span>/</span> Add to Cart</button>
+    if (saleAttribute === 'true') {
+      // get sale price from sale cards
+      const salePrice = item.lastElementChild.firstElementChild.innerHTML;
+
+      const modalContent = `
+      <div class="lg:w-1/2 mb-4">
+        <img class="object-center object-cover h-96" src="${product.image}" alt="#"> 
       </div>
-    </div>`;
+      <div class="bg-gray-800 text-white text-center p-6 lg:w-2/5 border-2 rounded">
+        <h3 class="text-4xl font-bold mb-4 pb-4 border-b-2">${product.title}</h3>
+        <p class="text-xl mb-4">${product.desc}</p>
+        <p class ="text-xl mb-4">${salePrice}</p>
+        <div class="flex justify-center">
+          <button id="cart-btn" data-id=${id} class="btn-light"><span>/</span> Add to Cart</button>
+        </div>
+      </div>`;
 
-    // inject modal content in DOM
-    productViewContent.innerHTML = modalContent;
+      // inject modal content in DOM
+      productViewContent.innerHTML = modalContent;
 
-    // get cart buttons from DOM
-    Cart.getCartButtons(id, productViewContent);
+      // get cart buttons from DOM
+      Cart.getCartButtons(id, productViewContent, saleAttribute, salePrice);
+    } else {
+      const modalContent = `
+      <div class="lg:w-1/2 mb-4">
+        <img class="object-center object-cover h-96" src="${product.image}" alt="#"> 
+      </div>
+      <div class="bg-gray-800 text-white text-center p-6 lg:w-2/5 border-2 rounded">
+        <h3 class="text-4xl font-bold mb-4 pb-4 border-b-2">${product.title}</h3>
+        <p class="text-xl mb-4">${product.desc}</p>
+        <p class ="text-xl mb-4">$${product.price}</p>
+        <div class="flex justify-center">
+          <button id="cart-btn" data-id=${id} class="btn-light"><span>/</span> Add to Cart</button>
+        </div>
+      </div>`;
+
+      // inject modal content in DOM
+      productViewContent.innerHTML = modalContent;
+
+      // get cart buttons from DOM
+      Cart.getCartButtons(id, productViewContent, saleAttribute);
+    }
   }
 
   // product click event method
