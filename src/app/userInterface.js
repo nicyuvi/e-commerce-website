@@ -27,8 +27,8 @@ export default class UI {
 
       // add slides to empty slides string
       const slides = `
-          <div class="splide__slide__container border border-gray-300 h-96 md:h-72 overflow-hidden">
-            <img class="object-center object-cover h-96 md:h-72 transform hover:scale-105 transition-transform duration-300" src="${image}" alt="image of featured product">
+          <div class="splide__slide__container border border-gray-300 h-500px md:h-72 overflow-hidden">
+            <img class="object-center object-cover h-500px md:h-72 transform hover:scale-105 transition-transform duration-300" src="${image}" alt="image of featured product">
           </div>
           <h2 class="text-2xl">${title}</h2>
           <p class="text-xl text-gray-500">$${price}</p>
