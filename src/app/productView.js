@@ -56,6 +56,7 @@ export default class ProductView {
   static clickProduct() {
     // declare slides
     const slides = document.querySelectorAll(
+      // eslint-disable-next-line comma-dangle
       '#featured-product-slider .splide__slide'
     );
     // declare cards
