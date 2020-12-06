@@ -1,3 +1,4 @@
+/* eslint-disable comma-dangle */
 import Storage from './utils/localStorage';
 
 import { toggleCartSidebar } from './navBar';
@@ -32,7 +33,12 @@ export default class Cart {
   }
 
   // passing in product id and product view DOM element
-  static getCartButtons(productID, productViewContent) {
+  static getCartButtons(
+    productID,
+    productViewContent,
+    saleAttribute,
+    salePrice
+  ) {
     // select add to cart button from DOM
     // eslint-disable-next-line operator-linebreak
     const addToCartButton =
@@ -55,7 +61,12 @@ export default class Cart {
       e.target.disabled = true;
 
       // spread operator copies all properties from specific object onto new cartItem object
-      const cartItem = { ...Storage.getProduct(productID), amount: 1 };
+      const cartItem = {
+        ...Storage.getProduct(productID),
+        amount: 1,
+        saleAttribute,
+        salePrice,
+      };
 
       // add cartItem to cart array
       cart = [...cart, cartItem];
@@ -82,8 +93,20 @@ export default class Cart {
 
     // total each item from cart
     updatedCart.forEach((item) => {
-      tempTotal += item.price * item.amount;
-      itemsTotal += item.amount;
+      if (item.saleAttribute === 'true') {
+        // destructure salePrice property
+        const { salePrice } = item;
+        // coerce salePrice from string to number
+        // slice $ from salePrice string
+        const salePriceNum = Number(salePrice.split('').slice(1).join(''));
+        // add price and amount to totals
+        tempTotal += salePriceNum * item.amount;
+        itemsTotal += item.amount;
+      } else {
+        // and price and amount to totals
+        tempTotal += item.price * item.amount;
+        itemsTotal += item.amount;
+      }
     });
 
     // display cart total to DOM
@@ -99,29 +122,54 @@ export default class Cart {
   // add product to shopping cart
   // pass in product object as item
   static addCartItem(item) {
-    // one cart item with dynamically added properties
-    const cartItemDOM = `
+    if (item.saleAttribute === 'true') {
+      // one cart item with added sale price
+      const saleCartItemDOM = `
       <li class="cart-item flex justify-between items-center mb-8">
-          <div class="text-left flex justify-between items-center">
-            <div>
+      <div class="text-left flex justify-between items-center">
+      <div>
               <img class="object-cover object-center w-20 h-20 cursor-pointer" src="${item.image}" alt="product" />
-            </div>
+              </div>
             <div class="ml-12">
-              <h2 class="text-3xl">${item.title}</h2>
-              <p class="text-2xl">$${item.price}</p>
+            <h2 class="text-3xl">${item.title}</h2>
+            <p class="text-2xl">${item.salePrice}</p>
               <span data-id="${item.id}" class="remove-item cursor-pointer hover:text-red-500 transition duration-300">remove</span>
-            </div>
+              </div>
           </div>
           <div class="flex flex-col items-center justify-center">
-            <i data-id='${item.id}' class="fas fa-chevron-up cursor-pointer hover:text-red-500 transition duration-300"></i>
+          <i data-id='${item.id}' class="fas fa-chevron-up cursor-pointer hover:text-red-500 transition duration-300"></i>
             <p class="item-amount">${item.amount}</p>
             <i data-id='${item.id}' class="fas fa-chevron-down cursor-pointer hover:text-red-500 transition duration-300"></i>
+            </div>
+      </li>
+    `;
+      // cart product item to cart items container
+      cartItemsContainer.innerHTML += saleCartItemDOM;
+    } else {
+      // one cart item with dynamically added properties
+      const cartItemDOM = `
+      <li class="cart-item flex justify-between items-center mb-8">
+      <div class="text-left flex justify-between items-center">
+      <div>
+              <img class="object-cover object-center w-20 h-20 cursor-pointer" src="${item.image}" alt="product" />
+              </div>
+            <div class="ml-12">
+            <h2 class="text-3xl">${item.title}</h2>
+            <p class="text-2xl">$${item.price}</p>
+              <span data-id="${item.id}" class="remove-item cursor-pointer hover:text-red-500 transition duration-300">remove</span>
+              </div>
           </div>
+          <div class="flex flex-col items-center justify-center">
+          <i data-id='${item.id}' class="fas fa-chevron-up cursor-pointer hover:text-red-500 transition duration-300"></i>
+            <p class="item-amount">${item.amount}</p>
+            <i data-id='${item.id}' class="fas fa-chevron-down cursor-pointer hover:text-red-500 transition duration-300"></i>
+            </div>
       </li>
     `;
 
-    // cart product item to cart items container
-    cartItemsContainer.innerHTML += cartItemDOM;
+      // cart product item to cart items container
+      cartItemsContainer.innerHTML += cartItemDOM;
+    }
   }
 
   // Cart functionality
