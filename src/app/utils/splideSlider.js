@@ -4,7 +4,7 @@ import Splide from '@splidejs/splide';
 export const featuredProductSlider = new Splide('#featured-product-slider', {
   perPage: 3,
   breakpoints: {
-    800: {
+    1024: {
       perPage: 1,
     },
   },
