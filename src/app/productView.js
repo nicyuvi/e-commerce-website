@@ -55,7 +55,9 @@ export default class ProductView {
   // product click event method
   static clickProduct() {
     // declare slides
-    const slides = document.querySelectorAll('.splide__slide');
+    const slides = document.querySelectorAll(
+      '#featured-product-slider .splide__slide'
+    );
     // declare cards
     const cards = document.querySelectorAll('.product-card');
 
