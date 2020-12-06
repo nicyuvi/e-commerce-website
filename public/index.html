@@ -107,7 +107,7 @@
         </div>
 
         <!-- Splide js -->
-        <div id="splide" class="splide xl:hidden">
+        <div id="featured-product-slider" class="splide xl:hidden">
           <div class="splide__track">
             <ul class="splide__list">
               <!-- injected dynamically with js -->
@@ -167,8 +167,42 @@
     <!-- end customer satisfaction banner -->
 
     <!-- collections section -->
-    <section id="collections" class="mb-20">
-      
+    <section id="collections" class="px-4 xl:px-8 p-12 mb-20 bg-gray-300">
+      <!-- Splide js -->
+      <div id="collection-slider" class="splide">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide cursor-pointer">
+              <div class="splide__slide__container border border-gray-400 h-500px overflow-hidden mb-4">
+                <img class="h-500px object-bottom object-cover transform hover:scale-105 transition-transform duration-300"
+                  src="../src/assets/collection-1-img.jpg" alt="image of collection product">
+              </div>
+              <button id="clear-cart" class="clear-cart btn-dark"><span>/</span> Winter Collection</button>
+            </li>
+            <li class="splide__slide cursor-pointer">
+              <div class="splide__slide__container border border-gray-400 h-500px overflow-hidden mb-4">
+                <img class="h-500px object-bottom object-cover transform hover:scale-105 transition-transform duration-300"
+                  src="../src/assets/collection-3-img.jpg" alt="image of collection product">
+              </div>
+              <button id="clear-cart" class="clear-cart btn-dark"><span>/</span> Women's Formal Collection</button>
+            </li>
+            <li class="splide__slide cursor-pointer">
+              <div class="splide__slide__container border border-gray-400 h-500px overflow-hidden mb-4">
+                <img class="h-500px object-bottom object-cover transform hover:scale-105 transition-transform duration-300"
+                  src="../src/assets/collection-2-img.jpg" alt="image of collection product">
+              </div>
+              <button id="clear-cart" class="clear-cart btn-dark"><span>/</span> Designer Boots Collection</button>
+            </li>
+            <li class="splide__slide cursor-pointer">
+              <div class="splide__slide__container border border-gray-400 h-500px overflow-hidden mb-4">
+                <img class="h-500px object-bottom object-cover transform hover:scale-105 transition-transform duration-300"
+                  src="../src/assets/collection-4-img.jpg" alt="image of collection product">
+              </div>
+              <button id="clear-cart" class="clear-cart btn-dark"><span>/</span> Men's Formal Collection</button>
+            </li>
+          </ul>
+        </div>
+        <!-- End Splide js -->
     </section>
     <!-- end collections section -->
 
