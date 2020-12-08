@@ -24,7 +24,7 @@ export default document.addEventListener('DOMContentLoaded', () => {
       // display subscription popup
       Subscription.displaySubscription();
       // handle subscription form submit
-      Subscription.subscriptionFormSubmit();
+      Subscription.subscriptionFormValidation();
     })
     .catch((err) => {
       console.log(err);
