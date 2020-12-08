@@ -81,7 +81,7 @@
     <div id="cart-sidebar"
       class="fixed inset-y-0 right-0 h-screen w-screen transform md:w-2/3 xl:w-1/4 bg-gray-800 text-white pt-64px px-8 transition duration-300 translate-x-full ease-in-out z-40 overflow-y-auto">
       <h1 class="text-center font-bold text-4xl mb-12">Your Cart</h1>
-      <div class="cart-content">
+      <div class="cart-content mb-20">
         <ul id="cart-items" class="mb-12">
           <!-- injected via js -->
         </ul>
@@ -290,8 +290,8 @@
       <div class="news-letter h-auto w-auto bg-red-500 lg:w-2/5 xl:w-1/4 lg:-mt-16 mb-4 p-8">
         <h4 class="text-center text-2xl text-white font-bold">Here's 15% Off!</h4>
         <p class="text-sm mb-4">Just subscribe to our emails and get <span class="font-bold">15% off your first online order</span></p>
-        <form class="text-center flex flex-col justify-center items-center" action="#">
-          <input type="text" placeholder="Please Enter Your Email" class="px-4 py-2 mb-4 text-gray-800">
+        <form name="subscription" method="POST" data-netlify='true' class="text-center flex flex-col justify-center items-center">
+          <input type="text" name="email" placeholder="Please Enter Your Email" class="px-4 py-2 mb-4 text-gray-800">
           <button type="submit" class="btn-light-reverse"><span>/</span> Subscribe</button>
         </form>
       </div>
