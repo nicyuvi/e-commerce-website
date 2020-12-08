@@ -12,6 +12,8 @@ const subscriptionModalCloseBtn = document.querySelector(
 const subscriptionModalOverlay = document.querySelector(
   '#subscription-modal-overlay',
 );
+// subscription forms
+const forms = document.querySelectorAll('form');
 
 export default class Subscription {
   static displaySubscription() {
@@ -43,5 +45,28 @@ export default class Subscription {
     enableBodyScroll(subscriptionModalContent);
     subscriptionModal.classList.remove('opacity-100');
     subscriptionModal.classList.add('pointer-events-none');
+  }
+
+  // handle subscription form submit
+  static subscriptionFormSubmit() {
+    forms.forEach((form) => {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const myForm = e.target;
+        const formData = new FormData(myForm);
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString(),
+        })
+          .then(() => {
+            myForm.innerHTML =
+              '<p class="text-2xl text-white">Thank you for your subscription!</p>';
+
+            console.log('form submit');
+          })
+          .catch((error) => alert(error));
+      });
+    });
   }
 }

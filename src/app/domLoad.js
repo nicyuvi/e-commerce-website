@@ -21,7 +21,10 @@ export default document.addEventListener('DOMContentLoaded', () => {
       ProductView.clickProduct();
       // implement cart logic
       Cart.cartLogic();
+      // display subscription popup
       Subscription.displaySubscription();
+      // handle subscription form submit
+      Subscription.subscriptionFormSubmit();
     })
     .catch((err) => {
       console.log(err);
