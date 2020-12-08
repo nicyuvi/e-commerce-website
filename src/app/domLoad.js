@@ -3,6 +3,7 @@ import UI from './userInterface';
 import ProductView from './productView';
 import Storage from './utils/localStorage';
 import Cart from './cart';
+import Subscription from './utils/subscription';
 
 export default document.addEventListener('DOMContentLoaded', () => {
   // set up app on DOM load
@@ -20,6 +21,7 @@ export default document.addEventListener('DOMContentLoaded', () => {
       ProductView.clickProduct();
       // implement cart logic
       Cart.cartLogic();
+      Subscription.displaySubscription();
     })
     .catch((err) => {
       console.log(err);
