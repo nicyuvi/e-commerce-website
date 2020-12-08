@@ -62,7 +62,7 @@ export default class Subscription {
         myForm.innerHTML =
           '<p class="text-2xl text-white">Thank you for your subscription!</p>';
       })
-      .catch((error) => alert(error));
+      .catch((error) => console.log(error));
   }
 
   // subscription form validation
@@ -77,7 +77,7 @@ export default class Subscription {
         const inputValue = e.target.firstElementChild.nextElementSibling.value;
 
         // Verify email regex
-        const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
         if (emailRegex.test(inputValue) === false) {
           // eslint-disable-next-line operator-linebreak

@@ -31,7 +31,6 @@ export default async () => {
         image,
       };
     });
-    console.log(products);
     // return array of products
     return products;
   } catch (error) {
