@@ -131,15 +131,15 @@ export default class Cart {
               <img class="object-cover object-center w-20 h-20 cursor-pointer" src="${item.image}" alt="product" />
               </div>
             <div class="ml-12">
-            <h2 class="text-3xl">${item.title}</h2>
-            <p class="text-2xl">${item.salePrice}</p>
+            <h2 class="text-2xl break-words">${item.title}</h2>
+            <p class="text-xl">${item.salePrice}</p>
               <span data-id="${item.id}" class="remove-item cursor-pointer hover:text-red-500 transition duration-300">remove</span>
               </div>
           </div>
           <div class="flex flex-col items-center justify-center">
-          <i data-id='${item.id}' class="fas fa-chevron-up cursor-pointer hover:text-red-500 transition duration-300"></i>
+          <i data-id='${item.id}' class="fas fa-chevron-up text-3xl cursor-pointer hover:text-red-500 transition duration-300"></i>
             <p class="item-amount">${item.amount}</p>
-            <i data-id='${item.id}' class="fas fa-chevron-down cursor-pointer hover:text-red-500 transition duration-300"></i>
+            <i data-id='${item.id}' class="fas fa-chevron-down text-3xl cursor-pointer hover:text-red-500 transition duration-300"></i>
             </div>
       </li>
     `;
@@ -154,15 +154,15 @@ export default class Cart {
               <img class="object-cover object-center w-20 h-20 cursor-pointer" src="${item.image}" alt="product" />
               </div>
             <div class="ml-12">
-            <h2 class="text-3xl">${item.title}</h2>
-            <p class="text-2xl">$${item.price}</p>
+            <h2 class="text-2xl break-words">${item.title}</h2>
+            <p class="text-xl">$${item.price}</p>
               <span data-id="${item.id}" class="remove-item cursor-pointer hover:text-red-500 transition duration-300">remove</span>
               </div>
           </div>
           <div class="flex flex-col items-center justify-center">
-          <i data-id='${item.id}' class="fas fa-chevron-up cursor-pointer hover:text-red-500 transition duration-300"></i>
+          <i data-id='${item.id}' class="fas fa-chevron-up text-3xl cursor-pointer hover:text-red-500 transition duration-300"></i>
             <p class="item-amount">${item.amount}</p>
-            <i data-id='${item.id}' class="fas fa-chevron-down cursor-pointer hover:text-red-500 transition duration-300"></i>
+            <i data-id='${item.id}' class="fas fa-chevron-down text-3xl cursor-pointer hover:text-red-500 transition duration-300"></i>
             </div>
       </li>
     `;
