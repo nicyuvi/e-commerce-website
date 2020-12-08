@@ -12,14 +12,24 @@
       <div class="bg-gray-800 text-white fixed inset-x-0 top-0  z-50">
 
         <!-- desktop nav -->
-        <nav class="lg:flex justify-between items-center container m-auto hidden py-4">
-          <ul class="flex ml-4">
-            <li class="brand mr-3">Brand</li>
-            <li class="mr-3">Shop all</li>
-            <li class="mr-3">Featured products</li>
+        <nav class="sm:flex justify-between items-center container m-auto hidden py-4">
+          <ul class="flex items-center ml-4">
+            <li class="brand mr-8">
+              <a href="#hero">
+                <img class="h-40px w-auto" src="../src/assets/brand-img.png" alt="Brand image">
+              </a>
+            </li>
+            <li class="mr-4 nav-link">
+              <a href="#featured-products-div">Featured Products</a>
+            </li>
+            <li class="mr-4 nav-link">
+              <a href="#">Shop All</a>
+            </li>
           </ul>
-          <ul class="flex mr-4">
-            <li class="ml-6">Sign in</li>
+          <ul class="flex items-center mr-4">
+            <li class="ml-6 nav-link">
+              <a href="#">Sign In</a>
+            </li>
               <li class="ml-6">
                 <div class="cart-btn relative p-1">
                   <i class="fas fa-shopping-cart cursor-pointer text-xl"></i>
@@ -30,13 +40,17 @@
         </nav>
 
         <!-- mobile and tablet nav -->
-        <nav class="lg:hidden flex justify-between container m-auto p-4 sm:px-0">
+        <nav class="sm:hidden flex justify-between items-center container m-auto p-4 sm:px-0">
           <div class="hamBtn ml-4">
             <i class="fas fa-bars cursor-pointer text-xl"></i>
             <i class="fas fa-times cursor-pointer text-xl hidden"></i>
           </div>
 
-          <div class="brand">Brand</div>
+          <div class="brand">
+            <a href="#hero">
+              <img class="h-40px w-auto" src="../src/assets/brand-img.png" alt="Brand image">
+            </a>
+          </div>
           <div class="cart-btn relative p-1 mr-4">
             <i class="fas fa-shopping-cart cursor-pointer text-xl"></i>
             <div class="cart-items-number">0</div>
@@ -45,18 +59,27 @@
       </div>
 
       <!-- mobile nav links -->
-      <div id="nav-sidebar" class="fixed inset-y-0 left-0 h-screen w-screen transform md:w-2/3 lg:hidden bg-gray-800 text-white pt-20 pl-8 transition duration-300 -translate-x-full ease-in-out z-40">
-        <ul>
-          <li>one</li>
-          <li>two</li>
-          <li>three</li>
+      <div id="nav-sidebar" class="fixed inset-y-0 left-0 h-screen w-screen transform sm:hidden bg-gray-800 text-white transition duration-300 -translate-x-full ease-in-out z-40">
+        <ul class="ml-8 text-3xl h-screen flex flex-col justify-center">
+          <li id="nav-link" class="mb-12 flex justify-start items-baseline nav-arrow">
+            <a class="mr-4" href="#">Shop All</a>
+            <i class="fas fa-chevron-right text-2xl "></i>
+          </li>
+          <li id="nav-link" class="mb-12 flex justify-start items-baseline nav-arrow">
+            <a class="mr-4" href="#featured-products-div">Featured Products</a>
+            <i class="fas fa-chevron-right text-2xl"></i>
+          </li>
+          <li id="nav-link" class="mb-12 flex justify-start items-baseline nav-arrow">
+            <a class="mr-4" href="#">Sign In</a>
+            <i class="fas fa-chevron-right text-2xl"></i>
+          </li>
+          
         </ul>
       </div>
-      <div id="nav-overlay" class="fixed z-30 inset-0 bg-gray-800 bg-opacity-30 transition duration-3000 hidden active"></div>
-
+      
       <!-- shopping cart -->
     <div id="cart-sidebar"
-      class="fixed inset-y-0 right-0 h-screen w-screen transform md:w-2/3 xl:w-1/4 bg-gray-800 text-white pt-20 px-8 transition duration-300 translate-x-full ease-in-out z-40 overflow-y-auto">
+      class="fixed inset-y-0 right-0 h-screen w-screen transform md:w-2/3 xl:w-1/4 bg-gray-800 text-white pt-64px px-8 transition duration-300 translate-x-full ease-in-out z-40 overflow-y-auto">
       <h1 class="text-center font-bold text-4xl mb-12">Your Cart</h1>
       <div class="cart-content">
         <ul id="cart-items" class="mb-12">
@@ -73,7 +96,7 @@
     <!-- end nav section -->
 
     <!-- hero section -->
-    <section id="hero" class="mb-20 pt-56px">
+    <section id="hero" class="mb-20 pt-64px">
       <div class="relative">
         <div class="absolute text-white font-extrabold text-7xl xl:text-8xl h-auto w-1/4 p-3 lg:p-12 2xl:p-16 hidden md:block">
           <h1>Test Your Limits.</h1>
@@ -94,6 +117,7 @@
     <!-- end hero section -->
 
     <!-- featured products section -->
+    <div id="featured-products-div" class="pt-64px"></div>
     <section id="featured-products" class="px-4 lg:px-16 mb-20">
         <div class="flex flex-row">
           <div id="featured-products-header" class="text-4xl font-bold xl:w-1/4">
@@ -239,7 +263,11 @@
   <section id="footer" class="bg-gray-800 text-white w-full py-8">
     <div class="container m-auto px-4 lg:px-16 flex flex-col lg:flex-row justify-between items-start">
       <div class="flex flex-col lg:flex-row justify-between items-start lg:w-2/4">
-        <div class="brand mb-4">Brand</div>
+        <div class="brand mb-4">
+          <a href="#hero">
+            <img class="h-40px w-auto" src="../src/assets/brand-img.png" alt="Brand image">
+          </a>
+        </div>
         <div class="flex flex-col justify-center items-start mb-4">
           <h4 class="text-gray-400">Shop</h4>
           <a class="hover:underline mb-1" href="#">Apparel</a>
