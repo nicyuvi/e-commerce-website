@@ -15,7 +15,7 @@ function toggleNavSidebar() {
   // had to replace 'toggle' with 'add/remove' to make use of body scroll lock library
   if (navSidebar.classList.contains('-translate-x-full')) {
     // scroll lock
-    disableBodyScroll('#body');
+    disableBodyScroll(navSidebar);
     // sidebar slide in
     navSidebar.classList.remove('-translate-x-full');
     // change bars to X
@@ -23,7 +23,7 @@ function toggleNavSidebar() {
     hamBtn.lastElementChild.classList.remove('hidden');
   } else {
     // scroll enable
-    enableBodyScroll('#body');
+    enableBodyScroll(navSidebar);
     // sidebar slide out
     navSidebar.classList.add('-translate-x-full');
     // change X to bars
@@ -35,7 +35,7 @@ function toggleNavSidebar() {
 export function toggleCartSidebar() {
   if (cartOverlay.classList.contains('active')) {
     // scroll lock
-    disableBodyScroll('#body');
+    disableBodyScroll(cartSidebar);
     // sidebar slide in
     cartSidebar.classList.remove('translate-x-full');
     // display overlay
@@ -43,7 +43,7 @@ export function toggleCartSidebar() {
     cartOverlay.classList.remove('active');
   } else {
     // scroll enable
-    enableBodyScroll('#body');
+    enableBodyScroll(cartSidebar);
     // sidebar slide out
     cartSidebar.classList.add('translate-x-full');
     // hide overlay
@@ -53,6 +53,7 @@ export function toggleCartSidebar() {
 }
 
 export default () => {
+  // nav sidebar toggle
   hamBtn.addEventListener('click', () => {
     toggleNavSidebar();
     if (!cartSidebar.classList.contains('translate-x-full')) {
@@ -60,12 +61,14 @@ export default () => {
     }
   });
 
+  // close nav bar on sidebar link click
   navLink.forEach((link) => {
     link.addEventListener('click', () => {
       toggleNavSidebar();
     });
   });
 
+  // cart sidebar toggle
   cartBtn.forEach((btn) => {
     btn.addEventListener('click', () => {
       toggleCartSidebar();

@@ -12,7 +12,7 @@ export default class ProductView {
   static viewProductModal() {
     if (productViewOverlay.classList.contains('active')) {
       // scroll lock
-      disableBodyScroll('#body');
+      disableBodyScroll(productViewContainer);
       // display product view container
       productViewContainer.classList.add('opacity-100');
       productViewOverlay.classList.remove('active');
@@ -20,7 +20,7 @@ export default class ProductView {
       productViewContainer.classList.remove('pointer-events-none');
     } else {
       // scroll enable
-      enableBodyScroll('#body');
+      enableBodyScroll(productViewContainer);
       productViewContainer.classList.remove('opacity-100');
       productViewOverlay.classList.add('active');
       productViewContainer.classList.add('pointer-events-none');
