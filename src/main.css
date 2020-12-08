@@ -2,33 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* custom utilities */
-@layer utilities {
+/* custom components */
+@layer components {
   @responsive {
-    /* custom spacing */
-    .max-h-600px {
-      max-height: 600px;
-    }
-    .h-110px {
-      height: 110px;
-    }
-    .h-500px {
-      height: 500px;
-    }
-    .w-300px {
-      width: 300px;
-    }
-    .w-500px {
-      width: 500px;
-    }
-    .pt-56px {
-      padding-top: 56px;
-    }
-    .mt-56px {
-      margin-top: 56px;
-    }
-    /* end custom spacing */
-
     /* custom btn */
     .btn-light {
       /* background positioning off element at diagonal */
@@ -133,6 +109,36 @@
       padding: 0 5px;
     }
     /* custom cart button */
+  }
+}
+/* end custom components */
+
+/* custom utilities */
+@layer utilities {
+  @responsive {
+    /* custom spacing */
+    .max-h-600px {
+      max-height: 600px;
+    }
+    .h-110px {
+      height: 110px;
+    }
+    .h-500px {
+      height: 500px;
+    }
+    .w-300px {
+      width: 300px;
+    }
+    .w-500px {
+      width: 500px;
+    }
+    .pt-56px {
+      padding-top: 56px;
+    }
+    .mt-56px {
+      margin-top: 56px;
+    }
+    /* end custom spacing */
   }
 }
 /* end custom utilities */
