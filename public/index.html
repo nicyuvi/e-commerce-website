@@ -289,7 +289,7 @@
       </div>
       <div class="news-letter h-auto w-auto bg-red-500 lg:w-2/5 xl:w-1/4 lg:-mt-16 mb-4 p-8">
         <h4 class="text-center text-2xl text-white font-bold">Here's 15% Off!</h4>
-        <p class="text-sm mb-4">Just subscribe to our emails and get <span class="font-bold">15% off your first online order</span></p>
+        <p class="text-sm text-center mb-4">Just subscribe to our emails and get <span class="font-bold">15% off your first online order</span></p>
         <form name="subscription" method="POST" data-netlify='true' class="text-center flex flex-col justify-center items-center">
           <input type="text" name="email" placeholder="Please Enter Your Email" class="px-4 py-2 mb-4 text-gray-800">
           <button type="submit" class="btn-light-reverse"><span>/</span> Subscribe</button>
@@ -318,5 +318,31 @@
     </div>
   </section>
   <!-- footer -->
+
+  <!-- subscription popup -->
+  <div id="subscription-view"
+    class="modal transition duration-300 ease-in-out opacity-0 z-20 pointer-events-none fixed w-full h-full top-0 left-0 flex items-center justify-center">
+    <div id="subscription-modal-overlay" class="active modal-overlay z-10 absolute w-full h-full bg-gray-900 opacity-75"></div>
+  
+    <div
+      class="subscription-modal-container p-4 bg-gray-800 mt-56px h-300px w-11/12 sm:max-w-600px mx-auto rounded shadow-lg z-50 overflow-y-auto">
+      <div id="subscription-modal-close" class="flex justify-end mb-4 cursor-pointer z-50">
+        <i class="far fa-times-circle text-3xl text-white"></i>
+      </div>
+      <div id="subscription-modal-content" class="modal-content">
+        <div class="news-letter h-auto w-auto bg-red-500 mb-4 p-8">
+          <h4 class="text-center text-2xl text-white font-bold">Here's 15% Off!</h4>
+          <p class="text-sm text-center mb-4">Just subscribe to our emails and get <span class="font-bold">15% off your first online
+              order</span></p>
+          <form name="subscription" method="POST" data-netlify='true'
+            class="text-center flex flex-col justify-center items-center">
+            <input type="text" name="email" placeholder="Please Enter Your Email" class="px-4 py-2 mb-4 text-gray-800">
+            <button type="submit" class="btn-light-reverse"><span>/</span> Subscribe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end subscription popup -->
 </body>
 </html>
