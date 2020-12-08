@@ -1,5 +1,4 @@
 import { featuredProductSlider } from './utils/splideSlider';
-import Storage from './utils/localStorage';
 // product cards section
 const productsDOM = document.querySelector('#featured-products-cards');
 const saleProductsDOM = document.querySelector('#sale-cards-container');
