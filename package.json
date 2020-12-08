@@ -5,8 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server  --config webpack.dev.js --open",
-    "build": "webpack --config webpack.prod.js",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --config webpack.dev.js --open",
+    "build": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
     "lint": "eslint --ext .js"
   },
   "keywords": [],
@@ -17,6 +17,7 @@
     "@babel/preset-env": "^7.12.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^5.0.1",
     "eslint": "^7.13.0",
     "eslint-config-airbnb-base": "^14.2.1",
