@@ -2,17 +2,23 @@ import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
 import Storage from './utils/localStorage';
 import Cart from './cart';
 
+// full screen modal container
 const productViewContainer = document.querySelector('#product-view');
+// modal overlay
 const productViewOverlay = document.querySelector('#modal-overlay');
+// modal close btn
 const productViewCloseBtn = document.querySelector('#modal-close');
+// container for modal content
 const productViewContent = document.querySelector('#modal-content');
+// entire scrollable modal container
+const modalContainer = document.querySelector('.modal-container');
 
 export default class ProductView {
   // displays product modal
   static viewProductModal() {
     if (productViewOverlay.classList.contains('active')) {
       // scroll lock
-      disableBodyScroll('#body');
+      disableBodyScroll(modalContainer);
       // display product view container
       productViewContainer.classList.add('opacity-100');
       productViewOverlay.classList.remove('active');
@@ -20,7 +26,7 @@ export default class ProductView {
       productViewContainer.classList.remove('pointer-events-none');
     } else {
       // scroll enable
-      enableBodyScroll('#body');
+      enableBodyScroll(modalContainer);
       productViewContainer.classList.remove('opacity-100');
       productViewOverlay.classList.add('active');
       productViewContainer.classList.add('pointer-events-none');
@@ -37,6 +43,7 @@ export default class ProductView {
       // get sale price from sale cards
       const salePrice = item.lastElementChild.firstElementChild.innerHTML;
 
+      // modal content with sale price
       const modalContent = `
       <div class="lg:w-1/2 mb-4">
         <img class="object-center object-cover h-96" src="${product.image}" alt="#"> 
@@ -56,6 +63,7 @@ export default class ProductView {
       // get cart buttons from DOM
       Cart.getCartButtons(id, productViewContent, saleAttribute, salePrice);
     } else {
+      // modal content with normal price
       const modalContent = `
       <div class="lg:w-1/2 mb-4">
         <img class="object-center object-cover h-96" src="${product.image}" alt="#"> 
