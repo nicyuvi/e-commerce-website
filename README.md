@@ -1,4 +1,4 @@
-# Wheels Landing Page
+# Felix's Footware E-Commerce Website
 
 An E-Commerce web page for Felix's Footware shoe company built with HTML, Tailwind CSS, Javascript, Splide JS, Body scroll lock, Contentful CMS, and Webpack
 
