@@ -37,7 +37,7 @@ export default class Subscription {
         'click',
         this.closeSubscriptionModal,
       );
-    }, 10000);
+    }, 20000);
   }
 
   static closeSubscriptionModal() {
