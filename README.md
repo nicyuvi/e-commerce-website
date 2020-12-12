@@ -28,9 +28,11 @@ View live project: https://ecommerce-yuvi.netlify.app/
 
 - Using body scroll lock library for the first time and having the wrong html element as an argument
   - The argument should be the element which should have scrolling enabled.
+  
 - Implementing a product sales section after the initial project design
   - I did the sales calculations client side after the products loaded from Contentful
   - I had to add different components based on if sales was `true` or `false`.
+  
 - Tailwind CSS purging with Webpack
   - I had to explicity set NODE_ENV in my npm scripts since I was using <a  href="https://webpack.js.org/guides/production/#specify-the-mode"  target="_blank">Webpack</a>.
 
